@@ -646,3 +646,35 @@ html[dir="rtl"] .form select { background-position: 14px 55%, 20px 55%; }
   .site-header, .scope, .skip, .form { display: none !important; }
   body { background: #fff; color: #000; }
 }
+
+/* ---------- Refinements ---------- */
+/* Language-specific portrait: Arabic (RTL) and mirrored English (LTR) */
+.portrait .pf-ar { display: none; }
+html[dir="rtl"] .portrait .pf-en { display: none; }
+html[dir="rtl"] .portrait .pf-ar { display: block; }
+
+html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+::selection { background: rgba(188, 201, 216, 0.28); color: #fff; }
+:focus-visible { outline: 2px solid var(--ice); outline-offset: 3px; border-radius: 2px; }
+
+/* quieter light behind the portrait, and a clean fade at the section edge */
+.hero::before { background: radial-gradient(closest-side, rgba(188, 201, 216, 0.09), transparent); }
+@media (min-width: 900px) {
+  .portrait img {
+    -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 86%, transparent 100%);
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.55));
+  }
+}
+
+.hero h1 { letter-spacing: -0.025em; text-wrap: balance; }
+html[dir="rtl"] .hero h1 { letter-spacing: 0; }
+.lede, .section-lead { text-wrap: pretty; }
+
+.btn { transition: background-color .25s ease, border-color .25s ease, color .25s ease, transform .25s ease; }
+.btn:hover { transform: translateY(-1px); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .btn:hover { transition: none; transform: none; }
+}
