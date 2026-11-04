@@ -17,7 +17,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap">
-<link rel="stylesheet" href="style.css">
+<style>.portrait .pf-ar{display:none}html[dir="rtl"] .portrait .pf-en{display:none}html[dir="rtl"] .portrait .pf-ar{display:block}</style>
+<link rel="stylesheet" href="style.css?v=2">
 <script>document.documentElement.classList.add('js');</script>
 
 <script type="application/ld+json">
@@ -39,6 +40,8 @@
 <body id="top">
 <a class="skip" href="#main" data-ar="انتقل إلى المحتوى">Skip to content</a>
 
+<div class="topbar"><div class="wrap"><a href="#contact" data-ar="تواصل">Contact</a><button type="button" id="lang-toggle" class="lang" lang="ar" aria-label="Switch language to Arabic">عربي</button></div></div>
+
 <header class="site-header">
   <div class="wrap bar">
     <a class="mark" href="#top" data-ar="عبدالرحمن هشام">A. Hesham</a>
@@ -52,8 +55,7 @@
       </ul>
     </nav>
     <div class="bar-tools">
-      <button type="button" id="lang-toggle" class="lang" lang="ar" aria-label="Switch language to Arabic">عربي</button>
-      <a class="btn btn-primary btn-small bar-cta" href="#contact" data-ar="ابدأ مشروعك">Start a project</a>
+      <a class="btn btn-primary btn-small bar-cta" href="project-inquiry.html" data-ar="ابدأ مشروعك">Start a project</a>
     </div>
   </div>
 </header>
@@ -72,12 +74,13 @@
         <p class="lede" data-ar="مهندس تصميم هاردوير. أصمم مصادر الطاقة ودوائر شحن بطاريات الليثيوم والدوائر التناظرية، من المخطط الكهربائي حتى وحدة جاهزة للاستخدام لدى العميل.">Hardware design engineer. I build power supplies, Li-ion charging circuits and analog boards, from schematic to a unit a client can use.</p>
         <p class="where" data-ar="القاهرة، مصر. منفتح على الانتقال للعمل في بلد آخر.">Cairo, Egypt. Open to relocation.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="#contact" data-ar="ابدأ مشروعك">Start a project</a>
-          <a class="btn btn-secondary" href="Abdelrahman_Hesham_CV.pdf" data-ar="تحميل السيرة الذاتية">Download CV</a>
+          <a class="btn btn-primary" href="#work" data-ar="استعرض أعمالي">Explore my work</a>
+          <a class="btn btn-secondary" href="project-inquiry.html" data-ar="ابدأ مشروعك">Start a project</a>
         </div>
         <p class="elsewhere">
           <a href="https://github.com/ae-hesham" rel="me">GitHub</a>
           <a href="https://www.linkedin.com/in/ae-hesham" rel="me">LinkedIn</a>
+          <a href="Abdelrahman_Hesham_CV.pdf" data-ar="السيرة الذاتية">CV</a>
         </p>
       </div>
     </div>
@@ -102,7 +105,7 @@
           <li class="service">
             <h3 data-ar="تصميم لوحة PCB جديدة">New PCB design</h3>
             <p data-ar="رسم المخطط الكهربائي وتصميم اللوحة لدائرتك، مع ملفات التصنيع وقائمة المكونات (BOM) وملاحظات التجميع.">Schematic capture and PCB layout for your circuit, with fabrication files, a BOM and assembly notes.</p>
-            <button type="button" class="btn-line" data-request="project" data-ar="اطلب تصميمًا">Request a design</button>
+            <button type="button" class="btn-line" data-request="pcb" data-ar="اطلب تصميمًا">Request a design</button>
           </li>
           <li class="service">
             <h3 data-ar="تطوير هاردوير كامل">Full hardware development</h3>
@@ -127,7 +130,7 @@
           <li class="service">
             <h3 data-ar="منح وتعاون">Grants and collaboration</h3>
             <p data-ar="منح بحثية، ورعاية، ومشاريع مشتركة، وتعاون أكاديمي.">Research grants, sponsorship, joint projects and academic collaboration.</p>
-            <button type="button" class="btn-line" data-request="grant" data-ar="اقترح تعاونًا">Propose a collaboration</button>
+            <button type="button" class="btn-line" data-request="collab" data-ar="اقترح تعاونًا">Propose a collaboration</button>
           </li>
         </ul>
       </div>
@@ -175,6 +178,7 @@
           <h3>PSK Gate System</h3>
           <p class="sub" data-ar="بوابة توقيت سباقات للرياضيين على مضامير الملاعب. تولّيت المشروع بالكامل من البداية للنهاية في ELKO EP.">Race-timing gate for athletes at stadium tracks. I owned it end to end at ELKO EP.</p>
 
+          <p class="more"><a href="projects/psk-gate.html" data-ar="عرض صفحة المشروع">View project</a></p>
           <div class="feature-cols">
             <div class="feature-text">
               <p data-ar="كان نظام العميل السابق يلتقط تداخلًا من الأشعة تحت الحمراء وقت الشروق. أزال التحول إلى حساس بضوء LED أحمر المشكلة، وصممت المخطط الكهربائي ولوحة PCB من طبقتين لتشغيل النظام الجديد.">The client's earlier system picked up IR interference at sunrise. Switching to a red-LED sensor removed it, and I designed the schematic and 2-layer PCB that runs the new setup.</p>
@@ -214,6 +218,7 @@
           <h3 data-ar="متتبع شمسي بمحورين">Dual-axis solar tracker</h3>
           <p class="sub" data-ar="مشروع في NTI. Simulink وAltium Designer.">Project at NTI. Simulink and Altium Designer.</p>
 
+          <p class="more"><a href="projects/solar-tracker.html" data-ar="عرض صفحة المشروع">View project</a></p>
           <div class="feature-cols">
             <div class="feature-text">
               <p data-ar="نمذجت سلسلة الطاقة كاملة في Simulink: لوح PV وشاحن CN3791 وحماية Li-ion ومرحلة رفع إلى 5 V، مع التحكم في التتبع. يعمل كمحاكاة model-in-the-loop لمتتبع صغير بلوح 6 W وخلية Li-ion واحدة 3 Ah وحمل 5 V.">I modelled the full power chain in Simulink: PV panel, CN3791 charger, Li-ion protection and a 5 V boost stage, together with the tracking control. It runs as a model-in-the-loop simulation of a small tracker with a 6 W panel, a single 3 Ah Li-ion cell and a 5 V load.</p>
@@ -269,6 +274,7 @@
               <p class="tools">Altium Designer, LTspice</p>
             </div>
             <div class="row-body">
+              <p class="more"><a href="projects/fan-board.html" data-ar="عرض صفحة المشروع">View project</a></p>
               <p data-ar="تعمل من دخل واحد 20–25 V DC. يولّد محوّلا buck متزامنان خطي 12 V و5 V، ويغذي LDO بجهد 3.3 V متحكم STM32F411، ويقود قياس الحرارة بحساس TMP36 مشغّل مروحة MOSFET بإشارة PWM. تُظهر محاكاة LTspice تموجًا قدره 18.5 mV في خرج محوّل buck. تتضمن المشروع قائمة المكونات وخطة التشغيل الأولي. المخطط والتصميم مكتملان، والـ firmware هو الخطوة التالية.">Runs from a single 20–25 V DC input. Two synchronous buck converters make the 12 V and 5 V rails, a 3.3 V LDO feeds an STM32F411, and TMP36 sensing drives a PWM MOSFET fan driver. The LTspice simulation shows 18.5 mV of output ripple on the buck converter. Includes the BOM and a bring-up plan. Schematic and layout are complete; firmware is next.</p>
               <p class="repo"><a href="https://github.com/ae-hesham/Temperature-Controlled-DC-Fan-PCB" rel="noopener" data-ar="المخططات والتصميم وقائمة المكونات على GitHub">Schematics, layout and BOM on GitHub</a></p>
               <div class="photos">
@@ -289,6 +295,7 @@
               <p class="tools">Altium Designer</p>
             </div>
             <div class="row-body">
+              <p class="more"><a href="projects/power-supply-7out.html" data-ar="عرض صفحة المشروع">View project</a></p>
               <p data-ar="مصدر flyback معزول تتبعه مراحل buck. خطوط ثابتة +5 و+12 و+24 V بتيار 1 إلى 2 A، إضافة إلى خطين قابلين للضبط (+24 V و−12 V).">An isolated flyback with buck stages behind it. Fixed +5, +12 and +24 V rails at 1 to 2 A, plus two adjustable rails (+24 V and &minus;12 V).</p>
             </div>
           </li>
@@ -298,6 +305,7 @@
               <p class="tools">Altium Designer</p>
             </div>
             <div class="row-body">
+              <p class="more"><a href="projects/h-bridge-driver.html" data-ar="عرض صفحة المشروع">View project</a></p>
               <p data-ar="مشغّل MOSFET للتحكم في اتجاه المحرك وسرعته. لوحة من طبقتين، جرى تصنيعها واختبارها.">A MOSFET driver for motor direction and speed. 2-layer board, fabricated and tested.</p>
             </div>
           </li>
@@ -307,6 +315,7 @@
               <p class="tools">Altium Designer</p>
             </div>
             <div class="row-body">
+              <p class="more"><a href="projects/core-328pb.html" data-ar="عرض صفحة المشروع">View project</a></p>
               <p data-ar="متحكم ATmega328PB مع برمجة عبر USB-UART بشريحة FT232RL وإعادة ضبط تلقائية، ومنظم LM1117 مع دمج مصدري الطاقة (USB والخارجي) بثنائي Schottky. استبدلت طرف إعادة الضبط على الحافة بزر إعادة ضبط على اللوحة. النسخة Rev A جرى تصنيعها.">An ATmega328PB with FT232RL USB-UART programming and auto-reset, and an LM1117 LDO with Schottky OR-ing between USB and external power. I replaced the castellated reset pad with an on-board reset pushbutton. Rev A is fabricated.</p>
               <p class="repo"><a href="https://github.com/ae-hesham/Compact-ATmega328PB-Castellated-Microcontroller-Module" rel="noopener" data-ar="ملاحظات التصميم والتوزيع وقائمة المكونات على GitHub">Design notes, pinout and BOM on GitHub</a></p>
               <div class="photos">
@@ -327,6 +336,7 @@
               <p class="tools" data-ar="مشروع التخرج (بكالوريوس)">B.Sc. graduation project</p>
             </div>
             <div class="row-body">
+              <p class="more"><a href="projects/exoskeleton.html" data-ar="عرض صفحة المشروع">View project</a></p>
               <p data-ar="قدت فريقًا من 6 أفراد. النظام مبني بالكامل ويعمل: هيكل من صاج مجلفن، ومحركات NEMA 17 مع علب تروس مخصصة، ومتحكم RISC-V، وتغذية راجعة من جيروسكوب ومفاتيح نهاية المشوار. التقدير: ممتاز.">I led a team of 6. The system is fully built and working: a galvanized sheet-metal frame, NEMA 17 motors with custom spur gearboxes, a RISC-V controller, and gyroscope and limit-switch feedback. Grade: Excellent.</p>
               <div class="photos">
                 <figure data-optional>
@@ -498,7 +508,7 @@
     <div class="wrap section-grid">
       <h2 class="section-title" id="contact-h" data-ar="تواصل">Contact</h2>
       <div class="section-body">
-        <p class="contact-lead" data-ar="أخبرني بما تحتاجه وسأرد عليك بالبريد الإلكتروني. اختيارك لخدمة في الأعلى يحدّد نوع الطلب تلقائيًا.">Tell me what you need and I will reply by email. Choosing a service above sets the request type for you.</p>
+        <p class="contact-lead" data-ar="هل لديك مشروع تعمل عليه، أو استفسار تقني، أو فرصة للتعاون؟ أرسل رسالتك وسأعاود التواصل معك.">Have a project in mind, a technical question, or an opportunity to collaborate? Send a message and I'll get back to you.</p>
 
         <form id="request-form" class="form" action="#" method="post">
           <p class="chosen" id="chosen" hidden></p>
@@ -520,22 +530,31 @@
               <input id="f-phone" name="phone" type="tel" autocomplete="tel" dir="ltr">
             </div>
             <div class="field">
-              <label for="f-type" data-ar="نوع الطلب">Request type</label>
+              <label for="f-type" data-ar="نوع الاستفسار">Enquiry type</label>
               <select id="f-type" name="type" required>
-                <option value="" data-ar="اختر نوع الطلب">Choose a request type</option>
-                <option value="project" data-ar="تصميم لوحة PCB جديدة">New PCB design</option>
-                <option value="full" data-ar="تطوير هاردوير كامل">Full hardware development</option>
-                <option value="consult" data-ar="استشارة ومراجعة تصميم">Consultation and design review</option>
+                <option value="" data-ar="اختر نوع الطلب">Choose an enquiry type</option>
+                <option value="general" data-ar="استفسار عام">General enquiry</option>
+                <option value="enquiry" data-ar="استفسار عن مشروع">Project enquiry</option>
+                <option value="pcb" data-ar="تصميم لوحة PCB">PCB design</option>
+                <option value="full" data-ar="مشروع إلكترونيات كامل">Complete electronics project</option>
+                <option value="embedded" data-ar="أنظمة مدمجة">Embedded systems</option>
                 <option value="automation" data-ar="التحكم والأتمتة">Control and automation</option>
-                <option value="job" data-ar="عرض عمل">Job offer</option>
-                <option value="grant" data-ar="منحة أو تعاون">Grant or collaboration</option>
-                <option value="other" data-ar="شيء آخر">Something else</option>
+                <option value="consult" data-ar="استشارة تقنية">Technical consultation</option>
+                <option value="job" data-ar="توظيف / فرصة عمل">Employment / Hire me</option>
+                <option value="collab" data-ar="تعاون مهني">Professional collaboration</option>
               </select>
             </div>
           </div>
 
           <!-- Extra questions per request type -->
-          <div class="extra" data-for="project full automation" hidden>
+          <div class="extra" data-for="enquiry pcb full embedded automation" hidden>
+            <div class="field-row">
+              <div class="field"><label for="f-pname" data-ar="اسم المشروع أو المنتج">Project or product name</label><input id="f-pname" name="project_name" type="text"></div>
+              <div class="field"><label for="f-stage" data-ar="مرحلة المشروع">Current stage</label>
+                <select id="f-stage" name="stage"><option value="Idea" data-ar="فكرة">Idea</option><option value="Specification" data-ar="مواصفات">Specification</option><option value="Schematic" data-ar="مخطط كهربائي">Schematic</option><option value="Prototype" data-ar="نموذج أولي">Prototype</option><option value="Existing product" data-ar="منتج قائم">Existing product</option></select></div>
+            </div>
+          </div>
+          <div class="extra" data-for="enquiry pcb full embedded automation" hidden>
             <div class="field-row">
               <div class="field">
                 <label for="f-deadline" data-ar="الموعد المطلوب">When do you need it?</label>
@@ -548,7 +567,7 @@
             </div>
           </div>
 
-          <fieldset class="extra checks" data-for="project full" hidden>
+          <fieldset class="extra checks" data-for="enquiry pcb full embedded" hidden>
             <legend data-ar="ما الذي تحتاجه؟">What do you need?</legend>
             <label><input type="checkbox" name="scope" value="Schematic"> <span data-ar="مخطط كهربائي">Schematic</span></label>
             <label><input type="checkbox" name="scope" value="PCB layout"> <span data-ar="تصميم اللوحة">PCB layout</span></label>
@@ -581,13 +600,14 @@
           </div>
 
           <div class="extra" data-for="job" hidden>
+            <p class="hint" data-ar="الاسم والبريد أعلاه يخصان مسؤول التوظيف في الجهة التي تعرض الفرصة.">The name and email above should be those of the hiring contact offering the opportunity.</p>
             <div class="field-row">
               <div class="field">
-                <label for="f-company" data-ar="الشركة">Company</label>
+                <label for="f-company" data-ar="بيانات الشركة">Company details</label>
                 <input id="f-company" name="company" type="text" autocomplete="organization">
               </div>
               <div class="field">
-                <label for="f-role" data-ar="المسمى الوظيفي">Role title</label>
+                <label for="f-role" data-ar="المسمى الوظيفي المعروض">Position / role offered</label>
                 <input id="f-role" name="role" type="text">
               </div>
             </div>
@@ -605,27 +625,32 @@
                 <select id="f-contract" name="contract">
                   <option value="Full-time" data-ar="دوام كامل">Full-time</option>
                   <option value="Contract" data-ar="عقد">Contract</option>
-                  <option value="Part-time" data-ar="دوام جزئي">Part-time</option>
+                  <option value="Part-time" data-ar="دوام جزئي">Part-time</option><option value="Freelance" data-ar="عمل حر">Freelance</option><option value="Internship" data-ar="تدريب">Internship</option>
                 </select>
               </div>
             </div>
           </div>
 
-          <div class="extra" data-for="grant" hidden>
+          <div class="extra" data-for="collab" hidden>
             <div class="field-row">
               <div class="field">
-                <label for="f-org" data-ar="الجهة">Organization</label>
+                <label for="f-org" data-ar="الشركة أو الجهة">Company / organisation</label>
                 <input id="f-org" name="organization" type="text" autocomplete="organization">
               </div>
               <div class="field">
-                <label for="f-program" data-ar="البرنامج أو الفرصة">Program or opportunity</label>
+                <label for="f-program" data-ar="مجال التعاون">Collaboration area</label>
                 <input id="f-program" name="program" type="text">
               </div>
             </div>
           </div>
 
+          <div class="notice" id="notice" role="status" aria-live="polite" hidden>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+            <div><div id="notice-text"></div><a id="notice-cta" class="notice-cta" href="#"></a></div>
+          </div>
+
           <div class="field">
-            <label for="f-message" data-ar="التفاصيل">Details</label>
+            <label for="f-message" data-ar="الرسالة">Message</label>
             <textarea id="f-message" name="message" rows="6" required placeholder="Tell me what you need."></textarea>
           </div>
 
@@ -635,12 +660,14 @@
           </div>
 
           <div class="submit-row">
-            <button type="submit" class="btn btn-primary" id="send" data-ar="إرسال الطلب">Send request</button>
+            <button type="submit" class="btn btn-primary" id="send" data-ar="إرسال الرسالة">Send message</button>
+            <a class="btn btn-secondary" href="mailto:eng.ae.hesham@gmail.com" data-ar="راسلني عبر البريد الإلكتروني">Email me</a>
             <p class="privacy" data-ar="تُستخدم بياناتك فقط للرد على طلبك.">Your details are used only to reply to your request.</p>
           </div>
           <p class="status" id="status" role="status" aria-live="polite"></p>
         </form>
 
+        <p class="direct"><a href="project-inquiry.html" data-ar="ابدأ مشروعًا (نموذج مفصل)">Start a project (detailed form)</a> · <a href="employment-opportunity.html" data-ar="شارك فرصة عمل">Share an employment opportunity</a></p>
         <p class="direct"><span data-ar="تفضّل البريد مباشرة؟">Prefer email?</span> <a href="mailto:eng.ae.hesham@gmail.com" dir="ltr">eng.ae.hesham@gmail.com</a></p>
         <ul class="contact-links">
           <li><a href="https://www.linkedin.com/in/ae-hesham" rel="me">LinkedIn</a></li>
@@ -659,6 +686,6 @@
   </div>
 </footer>
 
-<script src="script.js" defer></script>
+<script src="script.js?v=2" defer></script>
 </body>
 </html>

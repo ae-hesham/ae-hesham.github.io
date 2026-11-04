@@ -39,7 +39,7 @@ var STRINGS = {
     failed: 'تعذّر إرسال الطلب. من فضلك راسلني على ',
     mailto: 'يجب أن يُفتح تطبيق البريد وبه الطلب جاهزًا. إن لم يُفتح، راسلني على ',
     switchLabel: 'Switch language to English',
-    button: 'EN',
+    button: 'English',
     placeholders: {
       project: 'ماذا يجب أن تفعل اللوحة؟ وهل هناك قيود على الحجم أو الطاقة أو الواجهات؟',
       full: 'ما المنتج، ولمن هو، وماذا يجب أن يفعل؟',
@@ -52,6 +52,46 @@ var STRINGS = {
     }
   }
 };
+
+var PROJECT_FORM_URL = 'project-inquiry.html';
+var EMPLOYMENT_FORM_URL = 'employment-opportunity.html';
+
+['en', 'ar'].forEach(function (l) {
+  var p = STRINGS[l].placeholders;
+  p.pcb = p.project; p.enquiry = p.full; p.collab = p.grant; p.general = p.other;
+  p.embedded = l === 'en' ? 'What should the firmware do, and on which microcontroller or interfaces?' : 'ماذا يجب أن تفعل البرمجة (Firmware)، وعلى أي متحكم أو واجهات؟';
+});
+
+var NOTICES = {
+  en: {
+    project: { text: ['For project enquiries, I recommend using the dedicated Project Inquiry Form. It allows you to share detailed technical requirements, project scope, constraints, timeline, and supporting information. This helps me understand your project more accurately, evaluate its requirements, and prepare a more relevant technical response or proposal.', 'You can still send a quick message using this Contact form if you prefer.'], cta: 'Use the Detailed Project Inquiry Form' },
+    job: { text: ['This section is intended for companies, employers, recruiters, and organisations that would like to discuss an employment opportunity, engineering position, contract, or professional engagement with me.', 'It is not intended for individuals applying for jobs or submitting their CVs to a company owned by me.'], cta: 'Share an Employment Opportunity' }
+  },
+  ar: {
+    project: { text: ['بالنسبة لاستفسارات المشاريع، يُفضّل استخدام نموذج طلب المشروع التفصيلي. يتيح لك إضافة المتطلبات الفنية ونطاق المشروع والقيود والجدول الزمني وأي معلومات مساندة، مما يساعدني على فهم المشروع بصورة أدق وتقييم متطلباته وتقديم رد أو عرض فني أكثر ملاءمة.', 'ويمكنك أيضًا إرسال رسالة سريعة باستخدام نموذج التواصل الحالي إذا كنت تفضّل ذلك.'], cta: 'استخدم نموذج طلب المشروع التفصيلي' },
+    job: { text: ['هذا القسم مخصص للشركات والمؤسسات ومسؤولي التوظيف الذين يرغبون في مناقشة فرصة عمل أو وظيفة هندسية أو تعاقد أو تعاون مهني معي.', 'هذا النموذج ليس مخصصًا للأفراد الراغبين في التقديم على وظائف أو إرسال سيرتهم الذاتية إلى شركة أمتلكها.'], cta: 'أرسل تفاصيل فرصة العمل' }
+  }
+};
+
+function updateNotice() {
+  var box = document.getElementById('notice');
+  if (!box || !typeSelect) return;
+  var t = typeSelect.value;
+  var kind = ['enquiry', 'pcb', 'full', 'embedded', 'automation'].indexOf(t) !== -1 ? 'project' : (t === 'job' ? 'job' : '');
+  if (!kind) { box.hidden = true; box.removeAttribute('data-kind'); return; }
+  var n = NOTICES[currentLang][kind];
+  var txt = document.getElementById('notice-text');
+  txt.textContent = '';
+  n.text.forEach(function (line) { var p = document.createElement('p'); p.textContent = line; txt.appendChild(p); });
+  var a = document.getElementById('notice-cta');
+  a.textContent = n.cta;
+  a.href = kind === 'job' ? EMPLOYMENT_FORM_URL : PROJECT_FORM_URL + '?service=' + encodeURIComponent(t);
+  if (box.getAttribute('data-kind') !== kind) {
+    box.hidden = false;
+    box.setAttribute('data-kind', kind);
+    box.classList.remove('in'); void box.offsetWidth; box.classList.add('in');
+  }
+}
 
 var currentLang = 'en';
 
@@ -130,6 +170,7 @@ function updateRequestType() {
 
   var ph = STRINGS[currentLang].placeholders;
   messageEl.setAttribute('placeholder', ph[type] || ph.none);
+  updateNotice();
 }
 
 if (typeSelect) typeSelect.addEventListener('change', updateRequestType);
@@ -353,5 +394,20 @@ applyLang(initialLang());
     } else {
       img.addEventListener('error', function () { drop(fig); }, { once: true });
     }
+  });
+})();
+
+
+/* ---------- Keep what was typed when opening a detailed form ---------- */
+(function () {
+  var cta = document.getElementById('notice-cta');
+  if (!cta || !form) return;
+  cta.addEventListener('click', function () {
+    var d = {};
+    ['name', 'email', 'phone', 'message', 'company', 'organization'].forEach(function (k) {
+      var el = form.elements[k];
+      if (el && !el.disabled && el.value) d[k] = el.value;
+    });
+    try { sessionStorage.setItem('draft', JSON.stringify(d)); } catch (e) {}
   });
 })();
