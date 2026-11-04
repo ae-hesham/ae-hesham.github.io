@@ -16,7 +16,7 @@ var STRINGS = {
   en: {
     chosen: 'Request type: ',
     sending: 'Sending…',
-    sent: 'Thank you. Your request was sent and I will reply by email.',
+    sent: 'Your request has been received. I will review it and reply by email.',
     failed: 'The request could not be sent. Please email me at ',
     mailto: 'Your email app should open with the request filled in. If it does not, write to ',
     switchLabel: 'Switch language to Arabic',
@@ -35,7 +35,7 @@ var STRINGS = {
   ar: {
     chosen: 'نوع الطلب: ',
     sending: 'جارٍ الإرسال…',
-    sent: 'شكرًا لك. تم إرسال طلبك وسأرد عليك بالبريد الإلكتروني.',
+    sent: 'تم استلام طلبك. سأراجعه وأردّ عليك عبر البريد الإلكتروني.',
     failed: 'تعذّر إرسال الطلب. من فضلك راسلني على ',
     mailto: 'يجب أن يُفتح تطبيق البريد وبه الطلب جاهزًا. إن لم يُفتح، راسلني على ',
     switchLabel: 'Switch language to English',
@@ -64,12 +64,12 @@ var EMPLOYMENT_FORM_URL = 'employment-opportunity.html';
 
 var NOTICES = {
   en: {
-    project: { text: ['For project enquiries, I recommend using the dedicated Project Inquiry Form. It allows you to share detailed technical requirements, project scope, constraints, timeline, and supporting information. This helps me understand your project more accurately, evaluate its requirements, and prepare a more relevant technical response or proposal.', 'You can still send a quick message using this Contact form if you prefer.'], cta: 'Use the Detailed Project Inquiry Form' },
-    job: { text: ['This section is intended for companies, employers, recruiters, and organisations that would like to discuss an employment opportunity, engineering position, contract, or professional engagement with me.', 'It is not intended for individuals applying for jobs or submitting their CVs to a company owned by me.'], cta: 'Share an Employment Opportunity' }
+    project: { text: ['For project work, the detailed Project Inquiry Form is the better route. It captures requirements, scope, constraints and timeline, so my reply can be a specific technical assessment rather than a general response.', 'A short message here is also welcome.'], cta: 'Open the Project Inquiry Form' },
+    job: { text: ['This channel is for companies, employers and recruiters who wish to discuss a role, contract or engagement with me.', 'It is not a job-application form for candidates.'], cta: 'Offer an Opportunity' }
   },
   ar: {
-    project: { text: ['بالنسبة لاستفسارات المشاريع، يُفضّل استخدام نموذج طلب المشروع التفصيلي. يتيح لك إضافة المتطلبات الفنية ونطاق المشروع والقيود والجدول الزمني وأي معلومات مساندة، مما يساعدني على فهم المشروع بصورة أدق وتقييم متطلباته وتقديم رد أو عرض فني أكثر ملاءمة.', 'ويمكنك أيضًا إرسال رسالة سريعة باستخدام نموذج التواصل الحالي إذا كنت تفضّل ذلك.'], cta: 'استخدم نموذج طلب المشروع التفصيلي' },
-    job: { text: ['هذا القسم مخصص للشركات والمؤسسات ومسؤولي التوظيف الذين يرغبون في مناقشة فرصة عمل أو وظيفة هندسية أو تعاقد أو تعاون مهني معي.', 'هذا النموذج ليس مخصصًا للأفراد الراغبين في التقديم على وظائف أو إرسال سيرتهم الذاتية إلى شركة أمتلكها.'], cta: 'أرسل تفاصيل فرصة العمل' }
+    project: { text: ['لمشاريع التصميم والتطوير، يُنصح باستخدام نموذج طلب المشروع التفصيلي؛ فهو يوثّق المتطلبات ونطاق العمل والقيود والجدول الزمني، فيأتي ردي تقييمًا فنيًا محددًا لا ردًا عامًا.', 'ويمكنك أيضًا إرسال رسالة مختصرة من هنا.'], cta: 'افتح نموذج طلب المشروع' },
+    job: { text: ['هذه القناة مخصصة للشركات وأصحاب العمل ومسؤولي التوظيف الراغبين في مناقشة وظيفة أو عقد أو تعاون معي.', 'وهي ليست نموذجًا لتقديم المرشحين على الوظائف.'], cta: 'اعرض فرصة' }
   }
 };
 
@@ -270,107 +270,123 @@ if (langToggle) {
 applyLang(initialLang());
 
 
-/* ---------- Buck converter scope ---------- */
+/* ---------- Power converter scope: buck, boost, flyback ---------- */
 (function () {
-  var sw = document.getElementById('sw-trace');
-  var il = document.getElementById('il-trace');
-  var slider = document.getElementById('duty');
-  var preset = document.getElementById('preset');
-  var outDuty = document.getElementById('out-duty');
-  var outVout = document.getElementById('out-vout');
-  var outRipple = document.getElementById('out-ripple');
-  var svg = document.getElementById('scope-svg');
+  var $ = function (id) { return document.getElementById(id); };
+  var sw = $('sw-trace'), il = $('il-trace'), slider = $('duty'), preset = $('preset'), svg = $('scope-svg');
   if (!sw || !il || !slider) return;
-
-  // Ideal buck model, for illustration
-  var VIN = 12;       // volts
-  var L = 22e-6;      // henries
-  var F = 500e3;      // hertz
-
-  var W = 640;
-  var PERIOD_PX = 112;       // one switching period on screen
-  var SW_HIGH = 52, SW_LOW = 132;
-  var IL_CENTER = 270, IL_SCALE = 220;   // pixels per amp
-
+  var outDuty = $('out-duty'), outVout = $('out-vout'), outRipple = $('out-ripple'), outVpk = $('out-vpk');
+  var W = 640, PERIOD_PX = 112, SW_LOW = 132, SW_H = 80;
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var phase = 0;
+  var phase = 0, topo = 'buck';
 
-  function model() {
-    var d = parseFloat(slider.value) / 100;
-    var vout = d * VIN;
-    var ripple = (VIN - vout) * d / (L * F);
-    return { d: d, vout: vout, ripple: ripple };
+  // Ideal continuous-conduction models, for illustration
+  var TOPO = {
+    buck: {
+      min: 5, max: 95, def: 41.7, vmax: 12, zero: 270, ilY: 204,
+      title: ['Buck converter', 'محوّل Buck'], sub: ['12 V in', 'دخل 12 V'], preset: ['Set for 5 V', 'اضبط على 5 V'],
+      note: ['Ideal model: output = duty cycle × input. 22 µH, 500 kHz, 1 A load. An illustration, not a measurement from my boards.', 'نموذج مثالي: الخرج = دورة التشغيل × الدخل. ملف 22 µH وتردد 500 kHz وحمل 1 A. للتوضيح فقط، وليست قياسًا من لوحاتي.'],
+      yI: function (A) { return 270 - (A - 1) * 220; },
+      calc: function (d) {
+        var vo = d * 12, r = (12 - vo) * d / (22e-6 * 500e3), avg = 1;
+        return { vo: vo, rip: r, vpk: 12, vOn: 12, vOff: 0, a0: avg - r / 2, a1: avg + r / 2, b0: avg + r / 2, b1: avg - r / 2, ilText: 'Inductor current, 1 A average' };
+      }
+    },
+    boost: {
+      min: 5, max: 80, def: 58.3, vmax: 25, zero: 340, ilY: 160,
+      title: ['Boost converter', 'محوّل Boost'], sub: ['5 V in', 'دخل 5 V'], preset: ['Set for 12 V', 'اضبط على 12 V'],
+      note: ['Ideal model: output = input ÷ (1 − duty cycle). 5 V in, 22 µH, 500 kHz, 0.5 A load. An illustration, not a measurement from my boards.', 'نموذج مثالي: الخرج = الدخل ÷ (1 − دورة التشغيل). دخل 5 V وملف 22 µH وتردد 500 kHz وحمل 0.5 A. للتوضيح فقط، وليست قياسًا من لوحاتي.'],
+      yI: function (A) { return 340 - A * 60; },
+      calc: function (d) {
+        var vo = 5 / (1 - d), r = 5 * d / (22e-6 * 500e3), avg = 0.5 / (1 - d);
+        return { vo: vo, rip: r, vpk: vo, vOn: 0, vOff: vo, a0: avg - r / 2, a1: avg + r / 2, b0: avg + r / 2, b1: avg - r / 2, ilText: 'Inductor current, ' + avg.toFixed(1) + ' A average' };
+      }
+    },
+    flyback: {
+      min: 10, max: 50, def: 38.5, vmax: 30, zero: 340, ilY: 160,
+      title: ['Flyback converter (isolated)', 'محوّل Flyback (معزول)'], sub: ['12 V in, n = 1.5', 'دخل 12 V، n = 1.5'], preset: ['Set for 5 V', 'اضبط على 5 V'],
+      note: ['Ideal CCM model: output = input × duty ÷ (1 − duty) ÷ n, with n = Np:Ns = 1.5, 40 µH primary, 500 kHz, 1 A load. Leakage spike and losses are not modelled. An illustration, not a measurement from my boards.', 'نموذج مثالي في وضع التوصيل المستمر: الخرج = الدخل × دورة التشغيل ÷ (1 − دورة التشغيل) ÷ n، حيث n = Np:Ns = 1.5، وملف أولي 40 µH وتردد 500 kHz وحمل 1 A. لا يشمل النموذج ذروة الحث التسريبي ولا الفقد. للتوضيح فقط، وليست قياسًا من لوحاتي.'],
+      yI: function (A) { return Math.max(175, 340 - A * 70); },
+      calc: function (d) {
+        var n = 1.5, vo = 12 * d / (1 - d) / n, vpk = 12 / (1 - d), r = 12 * d / (40e-6 * 500e3), im = 1 / (n * (1 - d));
+        return { vo: vo, rip: r, vpk: vpk, vOn: 0, vOff: vpk, a0: im - r / 2, a1: im + r / 2, b0: n * (im + r / 2), b1: n * (im - r / 2), ilText: 'Primary (rising), secondary (falling) current' };
+      }
+    }
+  };
+
+  function setT(el, pair) {
+    if (!el) return;
+    el.setAttribute('data-ar', pair[1]); el.dataset.en = pair[0];
+    el.textContent = currentLang === 'ar' ? pair[1] : pair[0];
   }
 
+  function model() { return TOPO[topo].calc(parseFloat(slider.value) / 100); }
+
   function draw() {
-    var m = model();
-    var offset = phase % PERIOD_PX;
-    var iMin = IL_CENTER + (m.ripple / 2) * IL_SCALE;   // lower current = lower on screen
-    var iMax = IL_CENTER - (m.ripple / 2) * IL_SCALE;
-    var swPts = [];
-    var ilPts = [];
-    var n = Math.ceil(W / PERIOD_PX) + 2;
-
+    var c = TOPO[topo], d = parseFloat(slider.value) / 100, m = c.calc(d);
+    var yv = function (v) { return SW_LOW - v / c.vmax * SW_H; };
+    var vOn = yv(m.vOn), vOff = yv(m.vOff);
+    var offset = phase % PERIOD_PX, swPts = [], ilPts = [], n = Math.ceil(W / PERIOD_PX) + 2;
     for (var k = -1; k < n; k++) {
-      var x0 = k * PERIOD_PX - offset;
-      var xOn = x0 + m.d * PERIOD_PX;
-      swPts.push(x0 + ',' + SW_LOW, x0 + ',' + SW_HIGH, xOn + ',' + SW_HIGH, xOn + ',' + SW_LOW);
-      ilPts.push(x0 + ',' + iMin, xOn + ',' + iMax);
+      var x0 = k * PERIOD_PX - offset, xo = x0 + d * PERIOD_PX, x1 = x0 + PERIOD_PX;
+      swPts.push(x0 + ',' + vOn, xo + ',' + vOn, xo + ',' + vOff, x1 + ',' + vOff);
+      ilPts.push(x0 + ',' + c.yI(m.a0), xo + ',' + c.yI(m.a1), xo + ',' + c.yI(m.b0), x1 + ',' + c.yI(m.b1));
     }
-    ilPts.push((n * PERIOD_PX - offset) + ',' + iMin);
-
     sw.setAttribute('points', swPts.join(' '));
     il.setAttribute('points', ilPts.join(' '));
   }
 
   function readouts() {
-    var m = model();
-    var duty = (m.d * 100).toFixed(1) + '%';
-    var vout = m.vout.toFixed(2) + ' V';
-    outDuty.textContent = duty;
-    outVout.textContent = vout;
-    outRipple.textContent = m.ripple.toFixed(2) + ' A';
+    var m = model(), duty = (parseFloat(slider.value)).toFixed(1) + '%', vout = m.vo.toFixed(2) + ' V';
+    outDuty.textContent = duty; outVout.textContent = vout;
+    outRipple.textContent = m.rip.toFixed(2) + ' A';
+    outVpk.textContent = m.vpk.toFixed(1) + ' V';
+    $('chan-sw-t').textContent = 'Switch node, ' + m.vpk.toFixed(0) + ' V peak';
+    $('chan-il-t').textContent = m.ilText;
     slider.setAttribute('aria-valuetext', duty + ' / ' + vout);
   }
 
-  function update() {
-    readouts();
-    draw();
+  function update() { readouts(); draw(); }
+
+  function setTopo(name) {
+    topo = name; var c = TOPO[name];
+    [].slice.call(document.querySelectorAll('.topo .tab')).forEach(function (t) {
+      var on = t.getAttribute('data-topo') === name;
+      t.setAttribute('aria-selected', on ? 'true' : 'false'); t.tabIndex = on ? 0 : -1;
+    });
+    slider.min = c.min; slider.max = c.max; slider.value = c.def;
+    setT($('scope-title'), c.title); setT($('scope-sub'), c.sub); setT(preset, c.preset); setT($('scope-note'), c.note);
+    var ref = $('ref-line'); ref.setAttribute('y1', c.zero); ref.setAttribute('y2', c.zero);
+    $('chan-il-t').setAttribute('y', c.ilY);
+    update();
   }
 
-  slider.addEventListener('input', update);
-  preset.addEventListener('click', function () {
-    slider.value = (5 / VIN * 100).toFixed(1);   // 41.7%
-    update();
+  document.querySelectorAll('.topo .tab').forEach(function (t, i, all) {
+    t.addEventListener('click', function () { setTopo(t.getAttribute('data-topo')); });
+    t.addEventListener('keydown', function (e) {
+      var step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!step) return;
+      if (document.documentElement.dir === 'rtl') step = -step;
+      var nx = all[(i + step + all.length) % all.length]; nx.focus(); setTopo(nx.getAttribute('data-topo')); e.preventDefault();
+    });
   });
 
+  slider.addEventListener('input', update);
+  preset.addEventListener('click', function () { slider.value = TOPO[topo].def; update(); });
   update();
 
-  // Slowly scroll the trace like a live scope, only while it is on screen
+  // Slowly scroll the traces like a live scope, only while on screen
   if (reduceMotion) return;
-
-  var visible = false;
-  var last = null;
-  var SPEED = 36;   // pixels per second
-
+  var visible = false, last = null, SPEED = 36;
   function frame(t) {
     if (last === null) last = t;
-    var dt = Math.min((t - last) / 1000, 0.1);
-    last = t;
-    if (visible && !document.hidden) {
-      phase += dt * SPEED;
-      draw();
-    }
+    var dt = Math.min((t - last) / 1000, 0.1); last = t;
+    if (visible && !document.hidden) { phase += dt * SPEED; draw(); }
     requestAnimationFrame(frame);
   }
-
   if ('IntersectionObserver' in window) {
-    new IntersectionObserver(function (entries) {
-      visible = entries[0].isIntersecting;
-    }).observe(svg);
-  } else {
-    visible = true;
-  }
+    new IntersectionObserver(function (entries) { visible = entries[0].isIntersecting; }).observe(svg);
+  } else { visible = true; }
   requestAnimationFrame(frame);
 })();
 
@@ -410,4 +426,34 @@ applyLang(initialLang());
     });
     try { sessionStorage.setItem('draft', JSON.stringify(d)); } catch (e) {}
   });
+})();
+
+
+/* ---------- Live "last updated" from GitHub ----------
+   Reads each linked repository's latest push date, so the site follows your repos. */
+(function () {
+  var spans = [].slice.call(document.querySelectorAll('[data-repo-updated]'));
+  if (!spans.length || !window.fetch) return;
+  function render() {
+    spans.forEach(function (sp) {
+      var iso = sp.dataset.iso; if (!iso) return;
+      var d = new Date(iso);
+      sp.textContent = (currentLang === 'ar' ? 'آخر تحديث: ' : 'Updated ') + d.toLocaleDateString(currentLang === 'ar' ? 'ar-EG' : 'en-GB', { month: 'short', year: 'numeric' });
+    });
+  }
+  spans.forEach(function (sp) {
+    var repo = sp.getAttribute('data-repo-updated'), key = 'gh:' + repo, c = null;
+    try { c = JSON.parse(sessionStorage.getItem(key)); } catch (e) {}
+    if (c && Date.now() - c.t < 36e5) { sp.dataset.iso = c.iso; render(); return; }
+    fetch('https://api.github.com/repos/ae-hesham/' + repo, { headers: { 'Accept': 'application/vnd.github+json' } })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (j) {
+        if (!j || !j.pushed_at) return;
+        sp.dataset.iso = j.pushed_at; render();
+        try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), iso: j.pushed_at })); } catch (e) {}
+      })
+      .catch(function () {});
+  });
+  var tg = document.getElementById('lang-toggle');
+  if (tg) tg.addEventListener('click', function () { setTimeout(render, 0); });
 })();

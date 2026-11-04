@@ -728,3 +728,18 @@ html[dir="rtl"] .eyebrow { letter-spacing: 0; }
 .flow-form .submit-row [hidden] { display: none; }
 @media (max-width: 600px) { .review { grid-template-columns: 1fr; gap: 2px; } .review dd { margin-bottom: 10px; } }
 .case-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--line); color: var(--muted); }
+
+/* ---------- Converter topology tabs ---------- */
+.topo { display: flex; gap: 6px; margin-bottom: 18px; border-bottom: 1px solid var(--line); }
+.topo .tab { background: none; border: 0; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 8px 14px; font: inherit; font-size: 0.92rem; font-weight: 500; color: var(--muted); cursor: pointer; transition: color .2s ease, border-color .2s ease; }
+.topo .tab:hover { color: var(--white); }
+.topo .tab[aria-selected="true"] { color: var(--white); border-bottom-color: var(--ice); }
+.readouts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 640px) { .readouts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.upd { margin-inline-start: 14px; font-size: 0.85rem; color: var(--muted); }
+.upd:empty { display: none; }
+
+.nda-badge { display: inline-flex; align-items: center; gap: 7px; margin-bottom: 12px; padding: 4px 11px; border: 1px solid var(--line-2); border-radius: 999px; font-size: 0.74rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ice); }
+html[dir="rtl"] .nda-badge { letter-spacing: 0; text-transform: none; }
+.nda-note { margin-top: 10px; font-size: 0.9rem; line-height: 1.65; color: var(--muted); }

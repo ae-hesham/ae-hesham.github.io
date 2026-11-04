@@ -1,7 +1,7 @@
 /* Multi-step enquiry forms: project inquiry and employment opportunity */
 var FS = {
-  en: { sending: 'Sending…', sent: 'Thank you. Your request was sent and I will reply by email.', failed: 'The request could not be sent. Please email me at ', mailto: 'Your email app should open with the request filled in. If it does not, write to ', none: 'Not provided' },
-  ar: { sending: 'جارٍ الإرسال…', sent: 'شكرًا لك. تم إرسال طلبك وسأرد عليك بالبريد الإلكتروني.', failed: 'تعذّر إرسال الطلب. من فضلك راسلني على ', mailto: 'يجب أن يُفتح تطبيق البريد وبه الطلب جاهزًا. إن لم يُفتح، راسلني على ', none: 'غير مذكور' }
+  en: { sending: 'Sending…', sent: 'Your request has been received. I will review it and reply by email.', failed: 'The request could not be sent. Please email me at ', mailto: 'Your email app should open with the request filled in. If it does not, write to ', none: 'Not provided' },
+  ar: { sending: 'جارٍ الإرسال…', sent: 'تم استلام طلبك. سأراجعه وأردّ عليك عبر البريد الإلكتروني.', failed: 'تعذّر إرسال الطلب. من فضلك راسلني على ', mailto: 'يجب أن يُفتح تطبيق البريد وبه الطلب جاهزًا. إن لم يُفتح، راسلني على ', none: 'غير مذكور' }
 };
 
 (function () {
