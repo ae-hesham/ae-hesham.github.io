@@ -1,0 +1,18 @@
+{
+  "name": "Abdelrahman Hesham",
+  "fullName": "Abdelrahman Hesham Ahmed Abdelaziz",
+  "title": "Electronics Engineer | PCB Designer | Embedded Systems Developer",
+  "headline": "Engineering Ideas Into Reality.",
+  "description": "I design and develop intelligent electronic solutions, transforming complex engineering concepts into reliable hardware, PCB designs, and embedded systems.",
+  "location": "Cairo, Egypt",
+  "url": "https://ae-hesham.github.io/",
+  "email": "eng.ae.hesham@gmail.com",
+  "linkedin": "https://www.linkedin.com/in/ae-hesham",
+  "github": "https://github.com/ae-hesham",
+  "cv": "Abdelrahman_Hesham_CV.pdf",
+  "availability": {
+    "enabled": true,
+    "label": "Available for selected projects"
+  },
+  "formEndpoint": ""
+}

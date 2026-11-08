@@ -1,0 +1,21 @@
+{
+  "heading": "From Concept to Reality.",
+  "steps": [
+    {
+      "title": "Discovery",
+      "text": "Understand project requirements, identify technical challenges, and define the engineering objectives."
+    },
+    {
+      "title": "Engineering & Design",
+      "text": "Develop the architecture, design circuits, select components, and create PCB layouts."
+    },
+    {
+      "title": "Development & Testing",
+      "text": "Develop hardware and firmware, integrate components, and perform functional testing."
+    },
+    {
+      "title": "Delivery",
+      "text": "Deliver agreed engineering files, documentation, prototypes, and final project results."
+    }
+  ]
+}

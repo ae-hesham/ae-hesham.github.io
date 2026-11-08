@@ -1,0 +1,28 @@
+{
+  "heading": "Beyond Engineering.",
+  "paragraphs": [
+    "I'm an electronics engineer based in Cairo, focused on power electronics and analog PCB design: switch-mode supplies, isolated power, and Li-ion charging and protection.",
+    "My most complete project is the PSK Gate System, a race-timing gate for stadium tracks. I took it from schematic and layout through client validation and assembled 12 working units.",
+    "When a system misbehaves in the field, I look for the physical cause first. On the PSK Gate, sunrise interference on IR sensors was the cause, and a red-LED sensor removed it.",
+    "I check designs in LTspice and Simulink before committing to a board, then debug the result on the bench with an oscilloscope and multimeter.",
+    "I'm completing an M.Sc. in Mechatronics at Ain Shams University, researching analog front-end IC design for current and torque sensing. I'm looking for hardware design work in power electronics or analog PCB design, and I'm open to relocating."
+  ],
+  "facts": [
+    {
+      "label": "Based in",
+      "value": "Cairo, Egypt. Open to relocation."
+    },
+    {
+      "label": "Studying",
+      "value": "M.Sc. Mechatronics Engineering, Ain Shams University (expected Nov 2027)"
+    },
+    {
+      "label": "Research",
+      "value": "Precision analog front-end IC for current and torque sensing"
+    },
+    {
+      "label": "Languages",
+      "value": "Arabic (native), English (B2)"
+    }
+  ]
+}

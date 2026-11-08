@@ -1,0 +1,98 @@
+[
+  {
+    "group": "Professional Experience",
+    "entries": [
+      {
+        "org": "ELKO EP",
+        "role": "Control Systems Engineer",
+        "date": "Oct 2025 – Sep 2026",
+        "text": "Owned the PSK Gate System from prototype to 12 delivered units. Delivered four automation projects: two smart-home systems for villas and apartments, pump control panels for a water station, and factory control systems. On the factory work, reviewed the approved designs and commissioned them on site with the site engineer.",
+        "skills": [
+          "PCB design",
+          "Optocoupler isolation",
+          "Raspberry Pi",
+          "Commissioning"
+        ]
+      }
+    ]
+  },
+  {
+    "group": "Education",
+    "entries": [
+      {
+        "org": "Ain Shams University, Cairo",
+        "role": "M.Sc. Mechatronics Engineering",
+        "date": "2025 – Nov 2027 (expected)",
+        "text": "GPA 3.65/4.0. Thesis: Design and Verification of a Precision Analog Front-End IC for Current and Torque Sensing in Robotic Actuator Systems.",
+        "skills": [
+          "Analog IC design",
+          "Sensing"
+        ]
+      },
+      {
+        "org": "Higher Technological Institute",
+        "role": "B.Sc. Mechatronics Engineering",
+        "date": "May 2019 – Jan 2024",
+        "text": "GPA 3.71/4.0 (92.75%, Excellent). Graduation project: an assistive lower-limb exoskeleton, led a team of 6. Grade: Excellent.",
+        "skills": [
+          "Mechatronics",
+          "RISC-V",
+          "Motor control"
+        ]
+      }
+    ]
+  },
+  {
+    "group": "Technical Training and Internships",
+    "entries": [
+      {
+        "org": "NTI",
+        "role": "Electronics Design Engineer Track",
+        "date": "Jul 2026 – Oct 2026",
+        "text": "SMPS, EMC and DFM.",
+        "skills": [
+          "SMPS",
+          "EMC",
+          "DFM"
+        ]
+      },
+      {
+        "org": "OS Academy",
+        "role": "Model-Based Design Track",
+        "date": "May 2026 – Oct 2026",
+        "text": "BMS capstone.",
+        "skills": [
+          "Simulink",
+          "BMS"
+        ]
+      },
+      {
+        "org": "HA Consulting Group",
+        "role": "SCADA Intern",
+        "date": "Sep 2025 – Nov 2025",
+        "text": "",
+        "skills": [
+          "SCADA"
+        ]
+      },
+      {
+        "org": "Information Technology Institute (ITI)",
+        "role": "Embedded Systems Intern",
+        "date": "Aug 2023 – Sep 2023",
+        "text": "",
+        "skills": [
+          "Embedded systems"
+        ]
+      },
+      {
+        "org": "Professional Company",
+        "role": "Embedded Systems Intern",
+        "date": "May 2023 – Jul 2023",
+        "text": "",
+        "skills": [
+          "Embedded systems"
+        ]
+      }
+    ]
+  }
+]

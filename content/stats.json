@@ -1,0 +1,26 @@
+[
+  {
+    "value": 12,
+    "label": "Production units delivered",
+    "note": "PSK Gate System, all working",
+    "hidden": false
+  },
+  {
+    "value": 6,
+    "label": "PCB designs",
+    "note": "Listed in the CV",
+    "hidden": false
+  },
+  {
+    "value": 4,
+    "label": "Automation projects delivered",
+    "note": "At ELKO EP",
+    "hidden": false
+  },
+  {
+    "value": 3,
+    "label": "Weeks to assemble 12 units",
+    "note": "PSK Gate production run",
+    "hidden": false
+  }
+]

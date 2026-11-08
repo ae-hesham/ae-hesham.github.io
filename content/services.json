@@ -1,0 +1,69 @@
+[
+  {
+    "id": "pcb",
+    "name": "PCB Design & Development",
+    "text": "Schematic and layout for your circuit, ready for fabrication.",
+    "icon": "pcb",
+    "capabilities": [
+      "Schematic design",
+      "PCB layout",
+      "PCB routing",
+      "Component selection",
+      "DFM review",
+      "Design optimization"
+    ]
+  },
+  {
+    "id": "complete",
+    "name": "Complete Electronics Projects",
+    "text": "From requirements to a working prototype.",
+    "icon": "box",
+    "capabilities": [
+      "Electronics architecture",
+      "Circuit development",
+      "Component integration",
+      "Hardware prototyping",
+      "Testing and troubleshooting",
+      "Complete hardware solutions"
+    ]
+  },
+  {
+    "id": "embedded",
+    "name": "Embedded Systems",
+    "text": "Microcontroller hardware and the firmware that runs on it.",
+    "icon": "chip",
+    "capabilities": [
+      "Microcontroller programming (AVR, STM32)",
+      "Firmware development",
+      "Sensor integration",
+      "Communication protocols (UART, I2C)",
+      "Hardware and firmware integration"
+    ]
+  },
+  {
+    "id": "custom",
+    "name": "Custom Engineering Solutions",
+    "text": "Engineering help shaped around your problem.",
+    "icon": "tool",
+    "capabilities": [
+      "Technical consultation",
+      "Electronics troubleshooting",
+      "Product development",
+      "Engineering research",
+      "Custom hardware solutions"
+    ]
+  },
+  {
+    "id": "collab",
+    "name": "Professional Collaboration",
+    "text": "Working with your team, remotely or on site.",
+    "icon": "link",
+    "capabilities": [
+      "Freelance engineering",
+      "Remote collaboration",
+      "Technical team collaboration",
+      "Engineering partnerships",
+      "Internship and employment opportunities"
+    ]
+  }
+]

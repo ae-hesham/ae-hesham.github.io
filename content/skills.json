@@ -1,0 +1,62 @@
+[
+  {
+    "group": "PCB Design",
+    "items": [
+      "Altium Designer",
+      "KiCad",
+      "Schematic capture",
+      "PCB layout",
+      "Component selection",
+      "Design for manufacturing",
+      "IPC standards"
+    ]
+  },
+  {
+    "group": "Embedded Systems",
+    "items": [
+      "C / C++",
+      "Python",
+      "AVR (ATmega)",
+      "PIC",
+      "STM32",
+      "Raspberry Pi",
+      "UART",
+      "I2C",
+      "Git"
+    ]
+  },
+  {
+    "group": "Electronics Engineering",
+    "items": [
+      "Analog electronics",
+      "Power electronics",
+      "SMPS: buck, boost, flyback",
+      "Isolated power",
+      "Li-ion charging and protection",
+      "EMC",
+      "LTspice",
+      "MATLAB / Simulink"
+    ]
+  },
+  {
+    "group": "Hardware Development",
+    "items": [
+      "Hardware prototyping",
+      "Board bring-up",
+      "Debugging",
+      "Oscilloscope and DMM",
+      "SMD soldering and reflow",
+      "Testing and validation"
+    ]
+  },
+  {
+    "group": "Control and Automation",
+    "items": [
+      "Siemens TIA Portal",
+      "PLC (Ladder and SCL)",
+      "SCADA / HMI",
+      "PID tuning",
+      "Stateflow and Simscape"
+    ]
+  }
+]
