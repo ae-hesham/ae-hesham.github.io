@@ -122,6 +122,9 @@
         "caption": "Solar tracker: PCB layout",
         "fit": "contain"
       }
+    ],
+    "tags": [
+      "mbd"
     ]
   },
   {
@@ -376,6 +379,9 @@
       ]
     },
     "gallery": [],
-    "monogram": "EXO"
+    "monogram": "EXO",
+    "tags": [
+      "robotics"
+    ]
   }
 ]

@@ -1,26 +1,58 @@
 [
   {
-    "value": 12,
-    "label": "Production units delivered",
-    "note": "PSK Gate System, all working",
-    "hidden": false
+    "id": "years",
+    "label": "Years in the field",
+    "note": "Since my first engineering internship, May 2023",
+    "source": "since",
+    "since": "2023-05",
+    "suffix": "+"
   },
   {
-    "value": 6,
+    "id": "projects",
+    "label": "Projects documented",
+    "note": "Case studies in Selected Works",
+    "source": "projects",
+    "match": {}
+  },
+  {
+    "id": "pcb",
     "label": "PCB designs",
-    "note": "Listed in the CV",
-    "hidden": false
+    "note": "Schematic and layout in Altium Designer",
+    "source": "projects",
+    "match": {
+      "category": "PCB Design"
+    }
   },
   {
-    "value": 4,
-    "label": "Automation projects delivered",
-    "note": "At ELKO EP",
-    "hidden": false
+    "id": "automation",
+    "label": "Automation projects",
+    "note": "Delivered at ELKO EP",
+    "source": "value",
+    "value": 4
   },
   {
-    "value": 3,
-    "label": "Weeks to assemble 12 units",
-    "note": "PSK Gate production run",
-    "hidden": false
+    "id": "robotics",
+    "label": "Robotics projects",
+    "note": "Motion control and mechatronics",
+    "source": "projects",
+    "match": {
+      "tag": "robotics"
+    }
+  },
+  {
+    "id": "mbd",
+    "label": "Model-based design",
+    "note": "Simulink models checked before hardware",
+    "source": "projects",
+    "match": {
+      "tag": "mbd"
+    }
+  },
+  {
+    "id": "inquiries",
+    "label": "People who got in touch",
+    "note": "Counted live from the contact forms",
+    "source": "live",
+    "minToShow": 5
   }
 ]

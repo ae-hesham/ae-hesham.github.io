@@ -9,7 +9,8 @@
       "Component selection",
       "Design for manufacturing",
       "IPC standards"
-    ]
+    ],
+    "icon": "pcb"
   },
   {
     "group": "Embedded Systems",
@@ -23,7 +24,8 @@
       "UART",
       "I2C",
       "Git"
-    ]
+    ],
+    "icon": "chip"
   },
   {
     "group": "Electronics Engineering",
@@ -36,7 +38,8 @@
       "EMC",
       "LTspice",
       "MATLAB / Simulink"
-    ]
+    ],
+    "icon": "bolt"
   },
   {
     "group": "Hardware Development",
@@ -47,7 +50,8 @@
       "Oscilloscope and DMM",
       "SMD soldering and reflow",
       "Testing and validation"
-    ]
+    ],
+    "icon": "box"
   },
   {
     "group": "Control and Automation",
@@ -57,6 +61,7 @@
       "SCADA / HMI",
       "PID tuning",
       "Stateflow and Simscape"
-    ]
+    ],
+    "icon": "loop"
   }
 ]
