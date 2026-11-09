@@ -26,27 +26,24 @@
   {
     "id": "automation",
     "label": "Automation projects",
-    "note": "Delivered at ELKO EP",
+    "note": "Factory and smart-home automation",
     "source": "value",
-    "value": 4
+    "value": 18,
+    "suffix": "+"
   },
   {
     "id": "robotics",
     "label": "Robotics projects",
     "note": "Motion control and mechatronics",
-    "source": "projects",
-    "match": {
-      "tag": "robotics"
-    }
+    "source": "value",
+    "value": 3
   },
   {
     "id": "mbd",
-    "label": "Model-based design",
-    "note": "Simulink models checked before hardware",
-    "source": "projects",
-    "match": {
-      "tag": "mbd"
-    }
+    "label": "MBD models",
+    "note": "Model-based design in Simulink",
+    "source": "value",
+    "value": 32
   },
   {
     "id": "inquiries",
