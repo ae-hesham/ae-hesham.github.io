@@ -2,7 +2,7 @@
   {
     "id": "years",
     "label": "Years in the field",
-    "note": "Since my first engineering internship, May 2023",
+    "note": "Since the first engineering internship, May 2023",
     "source": "since",
     "since": "2023-05",
     "suffix": "+"

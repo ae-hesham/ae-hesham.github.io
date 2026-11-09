@@ -22,7 +22,7 @@
       "fan-pcb"
     ],
     "sections": {
-      "overview": "A race-timing gate for athletes at stadium tracks, built for a client at ELKO EP. I owned the electronics end to end: schematic, 2-layer PCB, prototype, client validation and assembly of the production run.",
+      "overview": "A race-timing gate for athletes at stadium tracks, built for a client at ELKO EP. He owned the electronics end to end: schematic, 2-layer PCB, prototype, client validation and assembly of the production run.",
       "objectives": [
         "Remove the sunrise IR interference seen in the client's earlier system.",
         "Keep the 12 V sensors electrically separate from the 3.3 V Raspberry Pi logic.",
@@ -79,7 +79,7 @@
       "core-328pb"
     ],
     "sections": {
-      "overview": "A model-based design study of a small dual-axis solar tracker with Li-ion battery charging. The reference system has a 6 W PV panel, a single 3 Ah Li-ion cell and a 5 V load. I also designed the 2-layer PCB for the same power chain.",
+      "overview": "A model-based design study of a small dual-axis solar tracker with Li-ion battery charging. The reference system has a 6 W PV panel, a single 3 Ah Li-ion cell and a 5 V load. He also designed the 2-layer PCB for the same power chain.",
       "objectives": [
         "Model the full power chain: PV panel, charger, protection and boost stage.",
         "Add position control so the panel follows the sun.",
@@ -240,7 +240,7 @@
         "26 castellated I/O pads"
       ],
       "challenges": [
-        "I replaced the castellated reset pad with an on-board reset pushbutton.",
+        "The castellated reset pad was replaced with an on-board reset pushbutton.",
         "Rev A review notes are tracked in the repository. Rev B is planned to expose RESET and more ATmega328PB peripherals."
       ],
       "firmware": "Programmed over micro-USB through the FT232RL, with DTR-driven auto-reset.",
@@ -348,7 +348,7 @@
       "Complete Electronics Solutions",
       "Hardware Prototyping"
     ],
-    "summary": "My B.Sc. graduation project: a fully built, working exoskeleton, built by a team of 6 that I led.",
+    "summary": "His B.Sc. graduation project: a fully built, working exoskeleton, built by a team of 6 under his lead.",
     "tech": [
       "NEMA 17 motors",
       "RISC-V controller",
@@ -363,7 +363,7 @@
       "psk-gate-system"
     ],
     "sections": {
-      "overview": "The graduation project for my B.Sc. in Mechatronics Engineering. I led a team of 6 to build a working assistive lower-limb exoskeleton.",
+      "overview": "The graduation project for his B.Sc. in Mechatronics Engineering. He led a team of 6 to build a working assistive lower-limb exoskeleton.",
       "architecture": "A galvanized sheet-metal frame carries NEMA 17 motors with custom spur gearboxes. A RISC-V controller reads gyroscope and limit-switch feedback.",
       "components": [
         "Galvanized sheet-metal frame",

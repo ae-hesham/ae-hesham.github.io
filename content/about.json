@@ -1,11 +1,11 @@
 {
   "heading": "Beyond Engineering.",
   "paragraphs": [
-    "I'm an electronics engineer based in Cairo, focused on power electronics and analog PCB design: switch-mode supplies, isolated power, and Li-ion charging and protection.",
-    "My most complete project is the PSK Gate System, a race-timing gate for stadium tracks. I took it from schematic and layout through client validation and assembled 12 working units.",
-    "When a system misbehaves in the field, I look for the physical cause first. On the PSK Gate, sunrise interference on IR sensors was the cause, and a red-LED sensor removed it.",
-    "I check designs in LTspice and Simulink before committing to a board, then debug the result on the bench with an oscilloscope and multimeter.",
-    "I'm completing an M.Sc. in Mechatronics at Ain Shams University, researching analog front-end IC design for current and torque sensing. I'm looking for hardware design work in power electronics or analog PCB design, and I'm open to relocating."
+    "Abdelrahman Hesham is an electronics engineer based in Cairo, specialising in power electronics and analog PCB design: switch-mode supplies, isolated power, and Li-ion charging and protection.",
+    "His most complete work is the PSK Gate System, a race-timing gate for stadium tracks. He carried it from schematic and layout through client validation, and assembled 12 working units.",
+    "When a system misbehaves in the field, he looks for the physical cause first. On the PSK Gate it was sunrise interference on the IR sensors, and a red-LED sensor removed it.",
+    "Every design is verified in LTspice and Simulink before a board is committed, then proven on the bench with an oscilloscope and a multimeter.",
+    "He is completing an M.Sc. in Mechatronics at Ain Shams University, researching analog front-end IC design for current and torque sensing. He is looking for hardware design work in power electronics or analog PCB design, and is open to relocating."
   ],
   "facts": [
     {
