@@ -14,8 +14,7 @@
     "enabled": true,
     "label": "Available for selected projects"
   },
-  "formEndpoint": "https://formspree.io/f/xnppyrya",
-  "backupEndpoint": "https://script.google.com/macros/s/AKfycbziTxZe7CTE655lnuqaoCTNAUwPSiNBwZalszFLKWLJ210VRV_RinI1QwMbglQegxKK/exec",
+  "formEndpoint": "https://script.google.com/macros/s/AKfycbxyJG4x7mfSpRQxBEmgUp0MZB7ejiuVyDxnaA_aEPvNiggefcJGBlwHekfH649_KipM/exec",
   "roleAvailability": {
     "enabled": true,
     "label": "Open to full-time and contract"
