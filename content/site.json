@@ -14,7 +14,7 @@
     "enabled": true,
     "label": "Available for selected projects"
   },
-  "formEndpoint": "https://script.google.com/macros/s/AKfycbxyJG4x7mfSpRQxBEmgUp0MZB7ejiuVyDxnaA_aEPvNiggefcJGBlwHekfH649_KipM/exec",
+  "formEndpoint": "https://script.google.com/macros/s/AKfycby92fe1iua-q5WnoMoZVNe0Qsx8vLE1pk0U_8GSybVnPU0-OKTqqn0dJ-g63lre5BgW/exec",
   "roleAvailability": {
     "enabled": true,
     "label": "Open to full-time and contract"
